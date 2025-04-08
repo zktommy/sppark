@@ -84,6 +84,7 @@ fn main() {
     let mut nvcc = cc::Build::new();
     nvcc.cuda(true);
     nvcc.flag("-arch=sm_70");
+    nvcc.flag("-std=c++14");
     #[cfg(not(target_env = "msvc"))]
     nvcc.flag("-Xcompiler").flag("-Wno-unused-function");
     nvcc.define("TAKE_RESPONSIBILITY_FOR_ERROR_MESSAGE", None);
